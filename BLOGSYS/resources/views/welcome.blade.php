@@ -42,7 +42,7 @@
 							{
 								"@type": "ListItem",
 								"position": 3,
-								"name": "Contac tus",
+								"name": "Contact us",
 								"item": "{{ route('index') }}"
 							}
 						]
