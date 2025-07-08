@@ -3,7 +3,6 @@
 	<x-slot name="seo_config">
 		<meta name="description" content="Dapatkan informasi edukatif seputar perkembangan teknologi, pengembangan infastruktur, perangkat lunak dan berbagai hal teknologi lainnya.">
 		<meta name="keywords" content="@foreach($tags as $key => $val){{$key .','}} @endforeach {{ config('app.name', 'Blog with SEO') }}">
-
 		<meta name="copyright" content="Entol Rizky Development" />
 		<meta name="owner" content="Entol Rizky Development" />
 		<meta name="author" content="Entol Rizky Development" />
@@ -86,12 +85,11 @@
 			}
 		</script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 	</x-slot>
 
 
 	<div class="max-w-full py-20  ">
-		<div class="container max-w-[1140px] mx-auto ">
+		<div class="container max-w-[1140px] mx-auto px-3 md:px-0">
 			<section class="grid grid-cols-12 gap-5 border-b pb-10">
 				<div class="col-span-12 md:col-span-9">
 					<h2 class="border-b text-2xl pb-2 mb-7">

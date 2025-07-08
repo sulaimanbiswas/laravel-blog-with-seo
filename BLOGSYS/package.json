@@ -21,7 +21,6 @@
         "@ckeditor/ckeditor5-build-classic": "^38.0.1",
         "ckeditor-tailwind-reset": "^1.0.5",
         "flowbite": "^1.6.5",
-        "flowbite-typography": "^1.0.3",
-        "swiper": "^11.2.10"
+        "flowbite-typography": "^1.0.3"
     }
 }

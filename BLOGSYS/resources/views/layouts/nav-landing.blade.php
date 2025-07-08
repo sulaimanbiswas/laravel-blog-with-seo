@@ -1,10 +1,11 @@
-<header class="relative border-b py-4 ">
-	<div class="lg:block hidden w-full text-white z-50 sticky">
-		<div class="container max-w-[1140px] mx-auto">
+<header class=" border-b py-4 sticky top-0 bg-white z-50">
+	<div class="block w-full text-white">
+		<div class="container max-w-[1140px] mx-auto px-3 md:px-0">
 			<div class="flex items-center w-full justify-between">
 				<h1 class="font-georgia text-3xl font-bold text-[#222222] p-0 m-0">
 					<a href="/">
-						Reactari
+						<span class="hidden md:block">Reactari</span>
+						<span class="md:hidden block">R.</span>
 					</a>
 				</h1>
 				<div class="w-1/2">
