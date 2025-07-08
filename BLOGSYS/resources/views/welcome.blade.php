@@ -88,8 +88,13 @@
 	</x-slot>
 
 
-	<div class="max-w-full pt-20 pb-10">
-		<div class="container max-w-[1140px] mx-auto px-3 md:px-0">
+	<div class="max-w-full pb-10 pt-5">
+		<div class="container max-w-[1140px] mx-auto px-3 md:px-0 ">
+			<div class="flex justify-center items-center pb-5">
+				<a href="">
+					<img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
+				</a>
+			</div>
 			<section class="grid grid-cols-12 gap-5 border-b pb-10">
 				<div class="col-span-12 md:col-span-9">
 					<h2 class="border-b text-2xl pb-2 mb-7">
@@ -116,6 +121,11 @@
 									<span>{{ $blog->created_at->format('F d, Y') }}</span>
 									<span>-</span>
 									<span>{{ count($blog->blog_view_log) }} Views</span>
+								</div>
+								<div class="">
+									<a href="#" class="text-sm font-medium font-cabin uppercase border px-5 py-2 text-[#03a87c] border-[#03a87c] hover:border-transparent rounded-md">
+										All posts
+									</a>
 								</div>
 							</div>
 							@endforeach
@@ -255,15 +265,15 @@
 					<div class="md:col-span-2 relative">
 						<div class="sticky top-[68px]">
 							<a href="">
-								<img src="http://192.168.31.120:3000/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-1.png&w=384&q=75" alt="Ads 1">
+								<img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-1.png&w=384&q=75" alt="Ads 1">
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
-			<div class="sticky top-[68px] flex justify-center items-center">
+			<div class="flex justify-center items-center">
 				<a href="">
-					<img src="http://192.168.31.120:3000/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
+					<img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
 				</a>
 			</div>
 		</div>
