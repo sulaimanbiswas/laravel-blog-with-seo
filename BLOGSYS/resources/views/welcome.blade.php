@@ -88,12 +88,12 @@
 	</x-slot>
 
 
-	<div class="max-w-full py-20  ">
+	<div class="max-w-full pt-20 pb-10">
 		<div class="container max-w-[1140px] mx-auto px-3 md:px-0">
 			<section class="grid grid-cols-12 gap-5 border-b pb-10">
 				<div class="col-span-12 md:col-span-9">
 					<h2 class="border-b text-2xl pb-2 mb-7">
-						<span class="font-bold border-b pb-2.5 border-primary font-cabin">Editor's Picks</span>
+						<span class="font-bold border-b pb-2.5 border-primary font-cabin">Latest Posts</span>
 					</h2>
 					<div class="grid grid-cols-12 gap-5">
 						<div class="col-span-12 md:col-span-6">
@@ -152,7 +152,7 @@
 					</div>
 				</div>
 				<div class="col-span-12 md:col-span-3 relative">
-					<div class="sticky top-0">
+					<div class="sticky top-[68px]">
 						<h2 class="border-b text-2xl pb-2 mb-7 ">
 							<span class="font-bold border-b pb-2.5 border-primary font-cabin">Trending</span>
 						</h2>
@@ -182,7 +182,7 @@
 
 				</div>
 			</section>
-			<section class="py-10">
+			<section class="py-10 border-b">
 				<div class="swiper">
 					<!-- Additional required wrapper -->
 					<div class="swiper-wrapper">
@@ -219,28 +219,79 @@
 
 				</div>
 			</section>
+			<section class="py-10">
+				<div class="grid grid-cols-12 gap-5">
+					<div class="col-span-12 md:col-span-10">
+						<div class="grid grid-cols-12 gap-5">
+							@foreach($trending as $blog)
+							<div class="col-span-12 md:col-span-6">
+								<div class="grid grid-cols-12 gap-4">
+									<div class="col-span-5">
+										<figure>
+											<a href="{{ route('blog.detail',$blog->uniq) }}">
+												<div class="aspect-video overflow-hidden bg-slate-400">
+													<img src="{{ asset($blog->thumnail) }}" class="aspect-video w-auto transition-all object-contain mx-auto" alt="{{ $blog->title }}">
+												</div>
+											</a>
+										</figure>
+									</div>
+									<div class="col-span-7 flex flex-col justify-between">
+										<h5 class="text-[17.5px] font-bold font-cabin text-primary/80">
+											<a href="{{ route('blog.detail',$blog->uniq) }}" class="pt-0">
+												{{ $blog->title }}
+											</a>
+										</h5>
+										<div class="text-primary/50 flex items-center gap-2 font-cabin text-xs">
+											<span>{{ $blog->created_at->format('F d, Y') }}</span>
+											<span>-</span>
+											<span>{{ count($blog->blog_view_log) }} Views</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							@endforeach
+						</div>
+					</div>
+					<div class="md:col-span-2 relative">
+						<div class="sticky top-[68px]">
+							<a href="">
+								<img src="http://192.168.31.120:3000/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-1.png&w=384&q=75" alt="Ads 1">
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="sticky top-[68px] flex justify-center items-center">
+				<a href="">
+					<img src="http://192.168.31.120:3000/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
+				</a>
+			</div>
 		</div>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<x-slot name="js">
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-	<script>
-		const swiper = new Swiper(".swiper", {
-			slidesPerView: 1,
-			spaceBetween: 30,
-			// Optional parameters
-			// direction: "vertical",
-			loop: true,
-			autoplay: {
-				delay: 5000,
-				disableOnInteraction: false,
-			},
+		<script>
+			const swiper = new Swiper(".swiper", {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				// Optional parameters
+				// direction: "vertical",
+				loop: true,
+				autoplay: {
+					delay: 5000,
+					disableOnInteraction: false,
+				},
 
-			// If we need pagination
-			pagination: {
-				el: ".swiper-pagination",
-			},
-		});
-	</script>
+				// If we need pagination
+				pagination: {
+					el: ".swiper-pagination",
+				},
+			});
+		</script>
+	</x-slot>
+
+
 
 </x-landing-layout>

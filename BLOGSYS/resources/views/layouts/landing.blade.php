@@ -20,6 +20,7 @@
         @else
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('build/assets/css/main.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <!-- Scripts -->
         <script src="{{ asset('build/assets/js/main2.js') }}"></script>
         @endif
@@ -50,7 +51,7 @@
                 <!-- <p class="font-normal text-white mr-0 ml-auto">Crafted with <i class="fa-solid fa-heart text-red-500 mx-1"></i> by <a href="https://abinfotech.com.bd/" class="hover:text-sky-400 transition">AB Infotech LTD.</a></p> -->
         </div>
         <!-- Javascript -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script src="https://kit.fontawesome.com/c8151e59d5.js"></script>
         @if(isset($js))
         {{ $js }}
