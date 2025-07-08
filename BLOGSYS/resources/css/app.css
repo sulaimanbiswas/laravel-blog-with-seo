@@ -1,0 +1,38 @@
+@import "ckeditor-tailwind-reset/ckeditor-tailwind-reset";
+@import "swiper/css";
+@import "swiper/css/pagination";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+
+    @font-face {
+        font-family: "Georgia Regular";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Georgia Regular"), url("georgia.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "Georgia Italic";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Georgia Italic"), url("georgiai.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "Georgia Bold";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Georgia Bold"), url("georgiab.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "Georgia Bold Italic";
+        font-style: normal;
+        font-weight: normal;
+        src: local("Georgia Bold Italic"), url("georgiaz.woff") format("woff");
+    }
+}

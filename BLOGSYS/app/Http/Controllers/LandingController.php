@@ -1,0 +1,95 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\BlogPost;
+use App\Models\BlogViewLog;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+
+class LandingController extends Controller
+{
+
+    public function index()
+    {
+        $featuredMain = BlogPost::release()->latest()->limit(1)->get();
+        $featuredSide = BlogPost::release()->latest()->skip(1)->limit(5)->get();
+
+        $trendingPostIds = BlogViewLog::query()
+            ->select('blog_post_id', DB::raw('COUNT(blog_post_id) as view_count'))
+            ->where('created_at', '>=', Carbon::now()->subDays(7))
+            ->groupBy('blog_post_id')
+            ->orderByDesc('view_count')
+            ->limit(5)
+            ->pluck('blog_post_id');
+
+        if ($trendingPostIds->isNotEmpty()) {
+            $trending = BlogPost::query()
+                ->whereIn('id', $trendingPostIds)
+                ->orderByRaw('FIELD(id, ' . $trendingPostIds->implode(',') . ')')
+                ->get();
+        } else {
+            $trending = new Collection();
+        }
+        $tag = $this->get_all_tag();
+        return view('welcome', ['featuredMain' => $featuredMain, 'featuredSide' => $featuredSide, 'trending' => $trending, 'tags' => $tag]);
+    }
+    public function detail($uniq)
+    {
+        $blog = BlogPost::release()->where('uniq', $uniq)->first();
+        $newest = BlogPost::release()->paginate(3);
+        if (isset($blog->title)) {
+            $this->blog_log($blog->id, request()->ip());
+            return view('blog-detail', ['blog' => $blog, 'newest' => $newest]);
+        }
+        return abort(404);
+    }
+    public function tag()
+    {
+        $tag = $this->get_all_tag();
+        return view('blog-tag', ['tags' => $tag]);
+    }
+
+    public function tag_detail($tag)
+    {
+        $blog = $this->get_blog_with_tag($tag);
+        return view('blog-tag-detail', ['blogs' => $blog, 'tag' => $tag]);
+    }
+
+    public function get_all_tag()
+    {
+        $tag = BlogPost::select('tag')->get();
+        $new_tag = [];
+        foreach ($tag as $tg) {
+            foreach (json_decode($tg->tag) as $t) {
+                array_push($new_tag, $t);
+            }
+        }
+        return array_count_values($new_tag);
+    }
+
+    public function get_blog_with_tag($tag)
+    {
+        return BlogPost::release()->where('tag', 'LIKE', '%' . $tag . '%')->get();
+    }
+    public function sitemap()
+    {
+        $route = [
+            ['index', '1.00'],
+        ];
+        $blog_list = BlogPost::release()->get();
+        $tag = $this->get_all_tag();
+        // dd($route);
+        return response()->view('sitemap', ['route' => $route, 'blog_list' => $blog_list, 'tag_list' => $tag])->header('Content-Type', 'text/xml');
+    }
+
+    public function blog_log($blog_id, $ip_address)
+    {
+        $log = new BlogViewLog;
+        $log->blog_post_id = $blog_id;
+        $log->ip_address = $ip_address;
+        $log->save();
+    }
+}
