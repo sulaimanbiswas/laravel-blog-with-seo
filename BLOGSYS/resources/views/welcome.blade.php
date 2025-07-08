@@ -153,32 +153,35 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-span-12 md:col-span-3">
-					<h2 class="border-b text-2xl pb-2 mb-7">
-						<span class="font-bold border-b pb-2.5 border-primary font-cabin">Trending</span>
-					</h2>
-					<div class="grid grid-cols-12 gap-2">
-						<div class="col-span-12 flex flex-col gap-4">
-							@foreach($trending as $blog)
-							<article>
-								<ol class="">
-									<div class=" flex flex-col justify-between">
-										<h5 class="text-[17.5px] font-bold font-cabin text-primary/80">
-											<a href="{{ route('blog.detail',$blog->uniq) }}" class="pt-0">
-												{{ $blog->title }}
-											</a>
-										</h5>
-										<div class="text-primary/50 flex items-center gap-2 font-cabin text-xs">
-											<span>{{ $blog->created_at->format('F d, Y') }}</span>
-											<span>-</span>
-											<span>{{ count($blog->blog_view_log) }} Views</span>
+				<div class="col-span-12 md:col-span-3 relative">
+					<div class="sticky top-0">
+						<h2 class="border-b text-2xl pb-2 mb-7 ">
+							<span class="font-bold border-b pb-2.5 border-primary font-cabin">Trending</span>
+						</h2>
+						<div class="grid grid-cols-12 gap-2">
+							<div class="col-span-12 flex flex-col gap-4">
+								@foreach($trending as $blog)
+								<article>
+									<ol class="">
+										<div class=" flex flex-col justify-between">
+											<h5 class="text-[17.5px] font-bold font-cabin text-primary/80">
+												<a href="{{ route('blog.detail',$blog->uniq) }}" class="pt-0">
+													{{ $blog->title }}
+												</a>
+											</h5>
+											<div class="text-primary/50 flex items-center gap-2 font-cabin text-xs">
+												<span>{{ $blog->created_at->format('F d, Y') }}</span>
+												<span>-</span>
+												<span>{{ count($blog->blog_view_log) }} Views</span>
+											</div>
 										</div>
-									</div>
-								</ol>
-							</article>
-							@endforeach
+									</ol>
+								</article>
+								@endforeach
+							</div>
 						</div>
 					</div>
+
 				</div>
 			</section>
 			<section class="py-10">
@@ -186,43 +189,35 @@
 					<!-- Additional required wrapper -->
 					<div class="swiper-wrapper">
 						<!-- Slides -->
-						<div class="swiper-slide">
-							<section class="max-w-6xl mx-auto p-4 mt-8">
-								<div class="p-6 flex flex-col md:flex-row gap-6">
-									<div class="flex-1">
-										<h2 class="text-sm text-gray-500 mb-2">Readers Vote</h2>
-										<h2 class="text-3xl font-bold mb-2">
-											What No One Tells You About Leaving a Job You Were 'Good At'
-										</h2>
-										<p class="text-gray-600 text-sm mt-5">
-											I was competent, praised, and promoted—but I wasn't happy. Walking
-											away from something you're good at is terrifying, especially when
-											people don't understand why. This is what I wish someone had told me
-											before I made that leap.
-										</p>
-										<div class="flex flex-col mt-5">
-											<p class="text-xs text-gray-500 mt-1">
-												<span class="text-black font-medium">Alentica</span> in
-												<span class="text-black">Police</span>
-											</p>
-											<p class="text-xs text-gray-500 mt-1">
-												Jun 16 &nbsp;·&nbsp; 7 min read
-												<span class="text-gray-400">★</span>
-											</p>
+						@foreach($trending as $blog)
+						<div class="swiper-slide ">
+							<div class="grid grid-cols-12 bg-gray-50 w-full h-full min-h-[350px]">
+								<div class="col-span-12 md:col-span-8 lg:col-span-6">
+									<div class="py-12 md:pl-12 pr-12">
+										<div class="flex flex-col gap-6">
+											<h2 class="text-[29px] font-bold font-cabin">
+												<a href="{{ route('blog.detail',$blog->uniq) }}">
+													{{ $blog->title }}
+												</a>
+											</h2>
+											<div class="text-primary/50">
+												{{ $blog->description }}
+											</div>
+											<div class="text-primary/50 flex items-center gap-2 font-cabin text-xs">
+												<span>{{ $blog->created_at->format('F d, Y') }}</span>
+												<span>-</span>
+												<span>{{ count($blog->blog_view_log) }} Views</span>
+											</div>
 										</div>
 									</div>
-									<div class="w-full md:w-1/2">
-										<img src="assets/blog_pic_1.png" alt="Job Story" class="w-full" />
-									</div>
 								</div>
-								<div class="border-t border-gray-300 mt-6"></div>
-							</section>
+								<div class="h-full col-span-12 md:col-span-4 lg:col-span-6 hidden md:block bg-center bg-no-repeat bg-cover relative" style="background-image: url('{{ asset($blog->thumnail) }}');"></div>
+							</div>
 						</div>
-						<div class="swiper-slide bg-gray-200 h-20">Slide 2</div>
-						<div class="swiper-slide bg-red-500 h-20">Slide 3</div>
+						@endforeach
 					</div>
 					<!-- If we need pagination -->
-					<div class="swiper-pagination"></div>
+					<div class="swiper-pagination top-full"></div>
 
 				</div>
 			</section>
@@ -233,38 +228,19 @@
 
 	<script>
 		const swiper = new Swiper(".swiper", {
-			slidesPerView: 3,
+			slidesPerView: 1,
 			spaceBetween: 30,
 			// Optional parameters
 			// direction: "vertical",
 			loop: true,
 			autoplay: {
-				delay: 2500,
+				delay: 5000,
 				disableOnInteraction: false,
 			},
 
 			// If we need pagination
 			pagination: {
 				el: ".swiper-pagination",
-			},
-
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 576px
-				576: {
-					slidesPerView: 1,
-					spaceBetween: 30,
-				},
-				// when window width is >= 768px
-				768: {
-					slidesPerView: 1,
-					spaceBetween: 30,
-				},
-				// when window width is >= 992px
-				992: {
-					slidesPerView: 1,
-					spaceBetween: 30,
-				},
 			},
 		});
 	</script>
