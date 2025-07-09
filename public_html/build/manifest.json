@@ -4,6 +4,22 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/fonts/georgia.woff": {
+    "file": "assets/css/main.woff",
+    "src": "resources/fonts/georgia.woff"
+  },
+  "resources/fonts/georgiab.woff": {
+    "file": "assets/css/main3.woff",
+    "src": "resources/fonts/georgiab.woff"
+  },
+  "resources/fonts/georgiai.woff": {
+    "file": "assets/css/main2.woff",
+    "src": "resources/fonts/georgiai.woff"
+  },
+  "resources/fonts/georgiaz.woff": {
+    "file": "assets/css/main4.woff",
+    "src": "resources/fonts/georgiaz.woff"
+  },
   "resources/js/app.js": {
     "file": "assets/js/main2.js",
     "isEntry": true,

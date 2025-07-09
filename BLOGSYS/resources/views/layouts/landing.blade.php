@@ -59,12 +59,6 @@
                 </svg> <span>Top</span>
         </button>
 
-        <!-- <div class="w-full rounded-lg border-b-2 border-sky-400 mx-auto" data-aos-anchor-placement="center-bottom" data-aos="zoom-in"></div>
-        <div class="bg-gradient-to-r from-sky-900 to-indigo-900 p-6 md:px-48 h-auto flex text-center justify-center" data-aos-anchor-placement="center-bottom" data-aos="zoom-in">
-                <p class="font-normal text-white ml-0 text-center ">©{{ date('Y') }} All rights reserved.</p>
-                <p class="font-normal text-white mr-0 ml-auto">Crafted with <i class="fa-solid fa-heart text-red-500 mx-1"></i> by <a href="https://abinfotech.com.bd/" class="hover:text-sky-400 transition">AB Infotech LTD.</a></p>
-        </div> -->
-
         <div class="border-t container max-w-[1140px] mx-auto px-3 md:px-0 py-7">
                 <div class="flex justify-between items-center gap-5">
                         <p class="text-sm font-cabin text-primary">Copyright {{ date('Y') }} Reactari.</p>

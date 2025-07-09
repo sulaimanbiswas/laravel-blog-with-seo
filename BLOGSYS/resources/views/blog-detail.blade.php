@@ -45,12 +45,12 @@
               "@id": "{{ route('blog.detail',$blog->uniq) }}#primaryimage"
             },
             "thumbnailUrl": "{{ asset('assets/blog/'.$blog->thumnail) }}",
-            "keywords": [
-              @foreach(explode(',', $blog -> keyword) as $key => $kw)
-              "{{ trim($kw) }}"
-              @if($key != array_key_last(explode(',', $blog -> keyword))), @endif
-              @endforeach
-            ],
+            // "keywords": [
+            //   @foreach(explode(',', $blog -> keyword) as $key => $kw)
+            //   "{{ trim($kw) }}"
+            //   @if($key != array_key_last(explode(',', $blog -> keyword))), @endif
+            //   @endforeach
+            // ],
             "inLanguage": "en-US",
             "video": [{
               "@id": "{{ route('blog.detail',$blog->uniq) }}#video"
@@ -175,36 +175,54 @@
       }
     </script>
   </x-slot>
-  <div class="p-4 py-24" id="header">
-    <div class="max-w-4xl mx-auto px-5 text-center">
-      <div class="w-full md:h-96 bg-slate-900 rounded-2xl overflow-hidden" id="imagePlace">
-        <img src="{{ asset($blog->thumnail) }}" class="mx-auto h-full" alt="{{ $blog->title }}">
-      </div>
-      <h1 class="text-4xl font-bold uppercase text-sky-700 mt-10">{{ $blog->title }}</h1>
-      <article class="text-left mt-8 format lg:format-lg format-red max-w-none" id="mainContent">
-        {!! json_decode($blog->content) !!}
-      </article>
-      <div class="mt-4 text-left">
-        @foreach(json_decode($blog->tag) as $tag)
-        <a href="{{ route('tag.detail',$tag) }}" class="bg-sky-700 p-1 px-4 rounded-full text-slate-100 transition-all hover:bg-sky-500 text-sm inline-block mt-1">{{ $tag }}</a>
-        @endforeach
-      </div>
-      <div class="text-sky-900 mt-24">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <div class="flex flex-wrap">
-            <div class="w-1/3">
-              <div class="rounded-full w-14 h-14 overflow-hidden mx-auto">
-                <img src="{{ asset($blog->user->profile_picture) }}" alt="Profile Picture - {{ $blog->user->name}}" class="h-14">
+  <div class="">
+
+    <div class="max-w-full pb-10 pt-5">
+      <div class="container max-w-[1140px] mx-auto px-3 md:px-0 flex flex-col gap-5">
+        <div class="flex justify-center items-center">
+          <a href="">
+            <img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
+          </a>
+        </div>
+
+        <div class="max-w-[800px] mx-auto">
+          <h1 class="text-primary/80 text-2xl md:text-3xl lg:text-[40px] font-lora font-medium lg:leading-[50px]">
+            {{ $blog->title }}
+          </h1>
+
+          <div class="flex items-center gap-5 mt-5">
+            <div class="">
+              <div class="rounded-full w-10 h-10 overflow-hidden mx-auto">
+                <img src="{{ asset($blog->user->profile_picture) }}" alt="Profile Picture - {{ $blog->user->name}}" class="h-full">
               </div>
             </div>
-            <div class="w-2/3 text-left">
-              <h3 class="text-sky-800 font-bold">{{ strtoupper($blog->user->name) }}</h3>
-              <p>Publish at <b>{{ date('d F Y',strtotime($blog->publish_date)) }}</b></p>
+            <div class="">
+              <p class="font-cabin text-primary text-xs font-bold">{{ strtoupper($blog->user->name) }}</p>
+              <p class="font-cabin text-primary text-xs">Publish at <strong>{{ date('d F Y',strtotime($blog->publish_date)) }}</strong></p>
             </div>
           </div>
         </div>
+
+        <div class="aspect-video bg-slate-900 rounded-md overflow-hidden group" id="imagePlace">
+          <img src="{{ asset($blog->thumnail) }}" class="mx-auto h-full  transition-transform duration-[2000ms] ease-in-out transform group-hover:scale-105" alt="{{ $blog->title }}">
+        </div>
+
+        <div class="max-w-[800px] mx-auto flex flex-col gap-5">
+          <article class="text-left lg:text-xl format lg:format-lg format-green max-w-none text-gray-800 font-lora first-letter:text-[80px] first-letter:font-medium first-letter:float-left first-letter:mt-1 first-letter:mr-2 first-letter:leading-none">
+            {!! json_decode($blog->content) !!}
+          </article>
+
+          <div class="text-left">
+            @foreach(json_decode($blog->tag) as $tag)
+            <a href="{{ route('tag.detail',$tag) }}" class="bg-gray-200 p-1 px-2 rounded-sm text-black font-cabin transition-all hover:text-[#03a87c] text-sm inline-block mt-1">{{ $tag }}</a>
+            @endforeach
+          </div>
+        </div>
+
+
       </div>
     </div>
+
   </div>
   <x-slot name="js">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>

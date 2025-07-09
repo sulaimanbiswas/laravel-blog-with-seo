@@ -14,6 +14,7 @@ module.exports = {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 georgia: ["Georgia", ...defaultTheme.fontFamily.sans],
                 cabin: ["Cabin", "sans-serif"],
+                lora: ["Lora"],
             },
             colors: {
                 primary: "#0000008a",
