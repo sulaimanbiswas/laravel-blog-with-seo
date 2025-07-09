@@ -39,12 +39,52 @@ class LandingController extends Controller
     public function detail($uniq)
     {
         $blog = BlogPost::release()->where('uniq', $uniq)->first();
-        $newest = BlogPost::release()->paginate(3);
-        if (isset($blog->title)) {
-            $this->blog_log($blog->id, request()->ip());
-            return view('blog-detail', ['blog' => $blog, 'newest' => $newest]);
+
+        if (!isset($blog->title)) {
+            return abort(404);
         }
-        return abort(404);
+
+        $newest = BlogPost::release()->paginate(20);
+
+        // Get tags from current blog (assuming comma-separated)
+        $tags = explode(',', $blog->tag);
+        $tags = array_map('trim', $tags); // Remove whitespace
+        $tags = array_filter($tags); // Remove empty elements
+
+        // Start building the related posts query
+        $relatedQuery = BlogPost::release()
+            ->where('id', '!=', $blog->id); // Exclude current post
+
+        // If tags exist, find posts that share any tag
+        if (!empty($tags)) {
+            $relatedQuery->where(function ($query) use ($tags) {
+                foreach ($tags as $tag) {
+                    $query->orWhere('tag', 'LIKE', "%{$tag}%");
+                }
+            });
+        }
+
+        // Get related posts (limit 8)
+        $related = $relatedQuery->latest()->limit(10)->get();
+
+        // If not enough related posts, fill with latest posts
+        if ($related->count() < 10) {
+            $additionalPosts = BlogPost::release()
+                ->where('id', '!=', $blog->id)
+                ->whereNotIn('id', $related->pluck('id'))
+                ->latest()
+                ->limit(10 - $related->count())
+                ->get();
+
+            $related = $related->merge($additionalPosts);
+        }
+
+        $this->blog_log($blog->id, request()->ip());
+        return view('blog-detail', [
+            'blog' => $blog,
+            'newest' => $newest,
+            'related' => $related
+        ]);
     }
     public function tag()
     {
