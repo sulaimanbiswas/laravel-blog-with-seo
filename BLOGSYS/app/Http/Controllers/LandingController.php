@@ -112,7 +112,7 @@ class LandingController extends Controller
 
     public function get_blog_with_tag($tag)
     {
-        return BlogPost::release()->where('tag', 'LIKE', '%' . $tag . '%')->get();
+        return BlogPost::release()->where('tag', 'LIKE', '%' . $tag . '%')->paginate(15);
     }
     public function sitemap()
     {

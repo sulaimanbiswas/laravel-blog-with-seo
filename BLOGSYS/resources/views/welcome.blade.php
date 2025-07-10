@@ -1,5 +1,4 @@
 <x-landing-layout>
-
 	<x-slot name="seo_config">
 		<meta name="description" content="Dapatkan informasi edukatif seputar perkembangan teknologi, pengembangan infastruktur, perangkat lunak dan berbagai hal teknologi lainnya.">
 		<meta name="keywords" content="@foreach($tags as $key => $val){{$key .','}} @endforeach {{ config('app.name', 'Blog with SEO') }}">

@@ -219,6 +219,54 @@
              <a href="{{ route('tag.detail',$tag) }}" class="bg-gray-200 first-letter:uppercase p-1 px-2 rounded-sm text-black font-cabin transition-all hover:text-[#03a87c] text-sm inline-block mt-1">{{ $tag }}</a>
              @endforeach
            </div>
+
+           <div
+             class="flex items-center gap-2 self-start h-fit">
+             <p>Share with: </p>
+             <button
+               class="border rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black">
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 320 512"
+                 class="w-4 h-4 fill-gray-500 hover:fill-green-600 transition-colors duration-200">
+                 <path
+                   d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+               </svg>
+             </button>
+
+             <button
+               class="border rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black">
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 512 512"
+                 class="w-4 h-4 fill-gray-500 hover:fill-green-600 transition-colors duration-200">
+                 <path
+                   d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+               </svg>
+             </button>
+
+             <button
+               class="border rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black">
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 512 512"
+                 class="w-4 h-4 fill-gray-500 hover:fill-green-600 transition-colors duration-200">
+                 <path
+                   d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+               </svg>
+             </button>
+
+             <button
+               class="border rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black">
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 512 512"
+                 class="w-4 h-4 fill-gray-500 hover:fill-green-600 transition-colors duration-200">
+                 <path
+                   d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8l0-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5l0 3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20-.1-.1s0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5l0 3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2l0-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z" />
+               </svg>
+             </button>
+           </div>
          </div>
 
          <div class="flex justify-center items-center">
@@ -267,6 +315,7 @@
              <div class="swiper-pagination -bottom-20"></div>
            </div>
          </div>
+
        </div>
      </div>
 
@@ -324,7 +373,7 @@
 
          const insertAdAfter = (index, adHtml) => {
            if (paragraphs.length >= index) {
-             const target = paragraphs[index - 1]; // 1-based index
+             const target = paragraphs[index - 1];
              const adWrapper = document.createElement("div");
              adWrapper.innerHTML = adHtml;
 
@@ -337,15 +386,16 @@
          };
 
          const adHtml = `
-      <div class="flex justify-center items-center my-6">
-        <a href="#">
-          <img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
-        </a>
-      </div>
-    `;
+          <div class="flex justify-center items-center my-6">
+            <a href="#">
+              <img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
+            </a>
+          </div>
+        `;
 
-         insertAdAfter(3, adHtml);
+         insertAdAfter(4, adHtml);
          insertAdAfter(8, adHtml);
+         insertAdAfter(12, adHtml);
        });
      </script>
    </x-slot>
