@@ -38,7 +38,7 @@
 						</ul>
 						<ul class="flex items-center justify-center gap-1">
 							<li class="border rounded-md border-primary flex items-center justify-center">
-								<a href="#" class="py-0 px-3 text-primary leading-7 hover:text-[#03a87c]">Contact</a>
+								<a href="/contact" class="py-0 px-3 text-primary leading-7 hover:text-[#03a87c]">Contact</a>
 							</li>
 						</ul>
 					</div>

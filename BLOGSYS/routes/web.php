@@ -64,5 +64,6 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/tag', [LandingController::class, 'tag'])->name('tag');
+Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 Route::get('/tag/{tag}', [LandingController::class, 'tag_detail'])->name('tag.detail');
 Route::get('/{uniq}', [LandingController::class, 'detail'])->name('blog.detail');

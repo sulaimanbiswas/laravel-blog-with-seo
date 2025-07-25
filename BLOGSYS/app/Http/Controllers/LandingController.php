@@ -101,7 +101,10 @@ class LandingController extends Controller
         $tag = $this->get_all_tag();
         return view('blog-tag', ['tags' => $tag]);
     }
-
+    public function contact()
+    {
+        return view('contact');
+    }
     public function tag_detail($tag)
     {
         $blog = $this->get_blog_with_tag($tag);

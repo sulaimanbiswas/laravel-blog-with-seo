@@ -45,12 +45,12 @@
                "@id": "{{ route('blog.detail',$blog->uniq) }}#primaryimage"
              },
              "thumbnailUrl": "{{ asset('assets/blog/'.$blog->thumnail) }}",
-             // "keywords": [
-             //   @foreach(explode(',', $blog -> keyword) as $key => $kw)
-             //   "{{ trim($kw) }}"
-             //   @if($key != array_key_last(explode(',', $blog -> keyword))), @endif
-             //   @endforeach
-             // ],
+             "keywords": [
+               @foreach(explode(',', $blog -> keyword) as $key => $kw)
+               "{{ trim($kw) }}"
+               @if($key != array_key_last(explode(',', $blog -> keyword))), @endif
+               @endforeach
+             ],
              "inLanguage": "en-US",
              "video": [{
                "@id": "{{ route('blog.detail',$blog->uniq) }}#video"
