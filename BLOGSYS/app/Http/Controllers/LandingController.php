@@ -16,10 +16,12 @@ class LandingController extends Controller
     {
         $featuredMain = BlogPost::release()->latest()->limit(1)->get();
         $featuredSide = BlogPost::release()->latest()->skip(1)->limit(5)->get();
+        $slider = BlogPost::release()->latest()->limit(5)->get();
+        $allPost = BlogPost::release()->latest()->limit(10)->get();
 
         $trendingPostIds = BlogViewLog::query()
             ->select('blog_post_id', DB::raw('COUNT(blog_post_id) as view_count'))
-            ->where('created_at', '>=', Carbon::now()->subDays(7))
+            ->where('created_at', '>=', Carbon::now()->subDays(15))
             ->groupBy('blog_post_id')
             ->orderByDesc('view_count')
             ->limit(5)
@@ -34,7 +36,15 @@ class LandingController extends Controller
             $trending = new Collection();
         }
         $tag = $this->get_all_tag();
-        return view('welcome', ['featuredMain' => $featuredMain, 'featuredSide' => $featuredSide, 'trending' => $trending, 'tags' => $tag]);
+
+        return view('welcome', [
+            'featuredMain' => $featuredMain,
+            'featuredSide' => $featuredSide,
+            'slider' => $slider,
+            'allPost' => $allPost,
+            'trending' => $trending,
+            'tags' => $tag
+        ]);
     }
     public function detail($uniq)
     {
@@ -65,15 +75,15 @@ class LandingController extends Controller
         }
 
         // Get related posts (limit 8)
-        $related = $relatedQuery->latest()->limit(10)->get();
+        $related = $relatedQuery->latest()->limit(8)->get();
 
         // If not enough related posts, fill with latest posts
-        if ($related->count() < 10) {
+        if ($related->count() < 8) {
             $additionalPosts = BlogPost::release()
                 ->where('id', '!=', $blog->id)
                 ->whereNotIn('id', $related->pluck('id'))
                 ->latest()
-                ->limit(10 - $related->count())
+                ->limit(8 - $related->count())
                 ->get();
 
             $related = $related->merge($additionalPosts);

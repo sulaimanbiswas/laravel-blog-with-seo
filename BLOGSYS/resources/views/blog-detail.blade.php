@@ -193,8 +193,14 @@
 
            <div class="flex items-center gap-5 mt-5">
              <div class="">
-               <div class="rounded-full w-10 h-10 overflow-hidden mx-auto">
-                 <img src="{{ asset($blog->user->profile_picture) }}" alt="Profile Picture - {{ $blog->user->name}}" class="h-full">
+               <div class="rounded-full w-10 h-10 overflow-hidden mx-auto border p-1 flex items-center justify-center">
+                 @if($blog->user->profile_picture)
+                 <img src="{{ asset($blog->user->profile_picture) }}" alt="Profile Picture - {{ $blog->user->name }}" class="h-full w-full object-cover">
+                 @else
+                 <div class="h-full w-full flex items-center justify-center select-none">
+                   <span class="font-semibold text-2xl text-gray-600 font-georgia">{{ strtoupper(substr($blog->user->name, 0, 1)) }}</span>
+                 </div>
+                 @endif
                </div>
              </div>
              <div class="">

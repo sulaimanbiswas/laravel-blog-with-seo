@@ -196,7 +196,7 @@
 					<!-- Additional required wrapper -->
 					<div class="swiper-wrapper">
 						<!-- Slides -->
-						@foreach($trending as $blog)
+						@foreach($slider as $blog)
 						<div class="swiper-slide ">
 							<div class="grid grid-cols-12 bg-gray-50 w-full h-full min-h-[350px]">
 								<div class="col-span-12 md:col-span-8 lg:col-span-6">
@@ -232,7 +232,7 @@
 				<div class="grid grid-cols-12 gap-5">
 					<div class="col-span-12 md:col-span-10">
 						<div class="grid grid-cols-12 gap-5">
-							@foreach($trending as $blog)
+							@foreach($allPost as $blog)
 							<div class="col-span-12 md:col-span-6">
 								<div class="grid grid-cols-12 gap-4">
 									<div class="col-span-5">
