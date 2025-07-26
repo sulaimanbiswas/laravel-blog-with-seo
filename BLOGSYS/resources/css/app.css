@@ -37,3 +37,7 @@
             url("../fonts/georgiaz.woff") format("woff");
     }
 }
+
+.ck-editor__editable_inline {
+    @apply min-h-[400px];
+}

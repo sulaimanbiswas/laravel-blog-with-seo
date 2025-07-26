@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/tag', [LandingController::class, 'tag'])->name('tag');
-Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/contact', [ContactFormController::class, 'contact'])->name('contact');
+Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.store');
 Route::get('/tag/{tag}', [LandingController::class, 'tag_detail'])->name('tag.detail');
 Route::get('/{uniq}', [LandingController::class, 'detail'])->name('blog.detail');

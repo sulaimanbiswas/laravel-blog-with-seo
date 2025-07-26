@@ -60,7 +60,14 @@
                     <p>
                         To learn more about our services or for specific information, please fill out the form below. Our representative will contact you shortly.
                     </p>
-                    <form action="mailto:sulaimanbiswasbd@gmail.com" method="post" enctype="text/plain">
+                    @if(session('success'))
+                    <div style="color: green; margin-bottom: 15px;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <form action="{{ route('contact.store') }}" method="post">
+                        @csrf
+                        <input type="text" name="site_name" value="{{ config('app.name') }}" hidden>
                         <div class="flex justify-between items-center gap-4 mt-5">
                             <input type="text" class="w-full font-cabin focus-within:ring-0 focus-within:border-[#03a87c] border-gray-300" name="name" placeholder="Your Name">
                             <input type="email" class="w-full font-cabin focus-within:ring-0 focus-within:border-[#03a87c] border-gray-300" name="email" placeholder="Your Email">
