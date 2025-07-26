@@ -26,27 +26,30 @@
                     <h2 class="border-b text-2xl pb-2 mb-7">
                         <span class="font-bold border-b pb-2.5 border-primary font-cabin">Others websites</span>
                     </h2>
+                    <p class="mb-4">
+                        To explore our other projects or for platform-specific information, please visit the websites listed below. Each site is a part of our growing network.
+                    </p>
                     <ol class="list-decimal ms-5 flex flex-col gap-2">
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://ractari.com">https://ractari.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://ractari.com">https://ractari.com</a>
                         </li>
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://diacona.com">https://diacona.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://diacona.com">https://diacona.com</a>
                         </li>
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://limojil.com">https://limojil.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://limojil.com">https://limojil.com</a>
                         </li>
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://lpister.com">https://lpister.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://lpister.com">https://lpister.com</a>
                         </li>
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://snombr.com">https://snombr.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://snombr.com">https://snombr.com</a>
                         </li>
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://sobreasa.com">https://sobreasa.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://sobreasa.com">https://sobreasa.com</a>
                         </li>
-                        <li class="hover:text-[#03a87c]">
-                            <a target="_blank" href="https://tralimi.com">https://tralimi.com</a>
+                        <li>
+                            <a class="hover:text-[#03a87c]" target="_blank" href="https://tralimi.com">https://tralimi.com</a>
                         </li>
                     </ol>
                 </div>
@@ -57,7 +60,7 @@
                     <p>
                         To learn more about our services or for specific information, please fill out the form below. Our representative will contact you shortly.
                     </p>
-                    <form action="" method="post">
+                    <form action="mailto:sulaimanbiswasbd@gmail.com" method="post" enctype="text/plain">
                         <div class="flex justify-between items-center gap-4 mt-5">
                             <input type="text" class="w-full font-cabin focus-within:ring-0 focus-within:border-[#03a87c] border-gray-300" name="name" placeholder="Your Name">
                             <input type="email" class="w-full font-cabin focus-within:ring-0 focus-within:border-[#03a87c] border-gray-300" name="email" placeholder="Your Email">

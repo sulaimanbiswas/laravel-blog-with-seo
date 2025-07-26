@@ -4,8 +4,8 @@
 			<div class="flex items-center w-full justify-between">
 				<h1 class="font-georgia text-3xl font-bold text-[#222222] p-0 m-0">
 					<a href="/">
-						<span class="hidden md:block">Reactari</span>
-						<span class="md:hidden block">R.</span>
+						<span class="hidden md:block">{{ config('app.name') }}</span>
+						<span class="md:hidden block">{{ substr(config('app.name'), 0, 1) }}.</span>
 					</a>
 				</h1>
 				<div class="w-1/2">

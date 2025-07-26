@@ -61,7 +61,7 @@
 
         <div class="border-t container max-w-[1140px] mx-auto px-3 md:px-0 py-7">
                 <div class="flex justify-between items-center gap-5">
-                        <p class="text-sm font-cabin text-primary">Copyright {{ date('Y') }} Reactari.</p>
+                        <p class="text-sm font-cabin text-primary">Copyright {{ date('Y') }} {{ config('app.name') }}.</p>
                         <ul class="flex items-center gap-1">
                                 <li class="border w-[26px] h-[26px] rounded-full border-primary">
                                         <a href="#" class=" flex justify-center items-center text-primary hover:text-[#03a87c] text-[14px] w-full h-full">
