@@ -179,7 +179,7 @@
    <div class="">
 
      <div class="max-w-full pb-10 pt-5">
-       <div class="container max-w-[1140px] mx-auto px-3 md:px-0 flex flex-col gap-5">
+       <div class="container max-w-[1140px] mx-auto px-3 md:px-3 lg:px-0 flex flex-col gap-5">
          <div class="flex justify-center items-center">
            <a href="">
              <img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">

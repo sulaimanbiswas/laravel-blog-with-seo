@@ -101,6 +101,11 @@ class LandingController extends Controller
         $tag = $this->get_all_tag();
         return view('blog-tag', ['tags' => $tag]);
     }
+    public function blogs()
+    {
+        $blogs = BlogPost::release()->latest()->paginate(20);
+        return view('blogs', ['blogs' => $blogs]);
+    }
     public function contact()
     {
         return view('contact');

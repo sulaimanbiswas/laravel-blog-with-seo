@@ -15,7 +15,7 @@
 
 
     <div class="max-w-full pb-10 pt-5">
-        <div class="container max-w-[1140px] mx-auto px-3 md:px-0 flex flex-col gap-5">
+        <div class="container max-w-[1140px] mx-auto px-3 md:px-3 lg:px-0 flex flex-col gap-5">
             <div class="mb-10 flex flex-col gap-4">
                 <h1 class="font-cabin text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-center font-semibold mt-10">Contact Us</h1>
                 <p class="text-center w-10/12 md:max-w-[500px] mx-auto text-primary">We have a dedicated support center for all of your support needs. We usually get back to you within 12-24 hours.</p>

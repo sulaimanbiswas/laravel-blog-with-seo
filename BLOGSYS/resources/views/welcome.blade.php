@@ -88,7 +88,7 @@
 
 
 	<div class="max-w-full pb-10 pt-5">
-		<div class="container max-w-[1140px] mx-auto px-3 md:px-0 ">
+		<div class="container max-w-[1140px] mx-auto px-3 md:px-3 lg:px-0 ">
 			<div class="flex justify-center items-center pb-5">
 				<a href="">
 					<img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-2.png&w=1200&q=75" alt="Ads 1">
@@ -122,7 +122,7 @@
 									<span>{{ count($blog->blog_view_log) }} Views</span>
 								</div>
 								<div class="">
-									<a href="#" class="text-sm font-medium font-cabin uppercase border px-5 py-2 text-[#03a87c] border-[#03a87c] hover:border-transparent rounded-md">
+									<a href="/posts" class="text-sm font-medium font-cabin uppercase border px-5 py-2 text-[#03a87c] border-[#03a87c] hover:border-transparent rounded-md">
 										All posts
 									</a>
 								</div>
@@ -261,7 +261,7 @@
 							@endforeach
 						</div>
 					</div>
-					<div class="md:col-span-2 relative">
+					<div class="md:col-span-2 relative hidden md:block">
 						<div class="sticky top-[68px]">
 							<a href="">
 								<img src="https://merinda-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fads%2Fads-1.png&w=384&q=75" alt="Ads 1">

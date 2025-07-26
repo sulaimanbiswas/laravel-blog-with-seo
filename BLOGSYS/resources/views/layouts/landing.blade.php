@@ -11,9 +11,9 @@
         @if(isset($title))
         {{ $title }}
         @else
-        <title>Blog | {{ config('app.name', 'Blog with SEO') }}</title>
+        <title>Home | {{ config('app.name', 'Blog with SEO') }}</title>
         @endif
-        <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo/logo.png') }}" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="canonical" href="{{ Request::url() }}" />
         @if($_SERVER['REMOTE_ADDR'] === "127.0.0.1")
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -59,7 +59,7 @@
                 </svg> <span>Top</span>
         </button>
 
-        <div class="border-t container max-w-[1140px] mx-auto px-3 md:px-0 py-7">
+        <div class="border-t container max-w-[1140px] mx-auto px-3 md:px-3 lg:px-0 py-7">
                 <div class="flex justify-between items-center gap-5">
                         <p class="text-sm font-cabin text-primary">Copyright {{ date('Y') }} {{ config('app.name') }}.</p>
                         <ul class="flex items-center gap-1">

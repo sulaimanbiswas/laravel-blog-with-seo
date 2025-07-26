@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class ContactFormMail extends Mailable
 {
@@ -37,7 +38,12 @@ class ContactFormMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: $this->data['email'], // Use the sender's email as the "from" address
+            from: new Address(config('mail.from.address'), config('mail.from.name')),
+
+            replyTo: [
+                new Address($this->data['email'], $this->data['name'])
+            ],
+
             subject: $this->data['subject'],
         );
     }
@@ -48,7 +54,7 @@ class ContactFormMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact-form', // We will create this view next
+            view: 'emails.contact-form',
         );
     }
 
