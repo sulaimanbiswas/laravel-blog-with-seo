@@ -10,7 +10,6 @@
         "alpinejs": "^3.14.9",
         "autoprefixer": "^10.4.14",
         "axios": "^1.1.2",
-        "flowbite-typography": "^1.0.3",
         "laravel-vite-plugin": "^2.0.0",
         "lodash": "^4.17.19",
         "postcss": "^8.4.21",
@@ -21,8 +20,6 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^38.0.1",
-        "ckeditor-tailwind-reset": "^1.0.5",
-        "flowbite": "^1.6.5",
-        "flowbite-typography": "^1.0.3"
+        "ckeditor-tailwind-reset": "^1.0.5"
     }
 }

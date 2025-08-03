@@ -22,5 +22,5 @@ module.exports = {
         },
     },
 
-    plugins: [require("flowbite-typography"), require("@tailwindcss/forms")],
+    plugins: [require("@tailwindcss/forms")],
 };

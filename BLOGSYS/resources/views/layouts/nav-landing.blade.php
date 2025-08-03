@@ -2,13 +2,13 @@
 	<div class="block w-full text-white">
 		<div class="container max-w-[1140px] mx-auto px-3 md:px-3 lg:px-0">
 			<div class="flex items-center w-full justify-between">
-				<h1 class="font-georgia text-3xl font-bold text-[#222222] p-0 m-0">
+				<div class="">
 					<a href="/">
-						<span class="hidden md:block">{{ config('app.name') }}</span>
-						<span class="md:hidden block">{{ substr(config('app.name'), 0, 1) }}.</span>
+						<img src="{{ asset('assets/logo/logo.png') }}" alt="logo" class="w-28 hidden md:block">
+						<img src="{{ asset('assets/logo/logo-short.png') }}" alt="logo" class="w-8 md:hidden block">
 					</a>
-				</h1>
-				<div class="w-1/2">
+				</div>
+				<div class="">
 					<div class="flex justify-end items-center gap-2">
 						<ul class="flex items-center gap-1">
 							<li class="border w-[26px] h-[26px] rounded-full border-primary">

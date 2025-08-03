@@ -27,7 +27,7 @@ class ContactFormController extends Controller
         ContactSubmission::create($validated);
 
 
-        Mail::to('seoworkstool@gmail.com')->send(new ContactFormMail($validated));
+        Mail::to('contact@ractari.com')->send(new ContactFormMail($validated));
 
         return back()->with('success', 'Thank you for your message! We will get back to you soon.');
     }
